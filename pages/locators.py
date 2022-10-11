@@ -1,19 +1,20 @@
 from selenium.webdriver.common.by import By
 
 class BasePageLocators():
-    BASKET_BTN = (By.CSS_SELECTOR, ".btn-group a")
     LOGIN_LINK = (By.CSS_SELECTOR, ".login")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    USER_GREETING = (By.CSS_SELECTOR, "#main-form > div.top > h3")
+    #OUTLETS_WRAP = (By.CSS_SELECTOR, ".outlets-wrap")
+    #CLOSE_OUTLETS = (By.CSS_SELECTOR, ".close-icon")
+    LOGOUT_LINK = (By.XPATH, "/html/body/div[3]/div/div[1]/div[2]/div/div/div[2]/ul/li[6]/a")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, ".sign-in-wrapper")
     REGISTER_LINK = (By.CSS_SELECTOR, "#main-form > div.top > a")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
-    REGISTRATION_EMAIL = (By.NAME, "registration-email")
-    REGISTRATION_PASSWORD1 = (By.NAME, "registration-password1")
-    REGISTRATION_PASSWORD2 = (By.NAME, "registration-password2")
-    LOGIN_BTN = (By.NAME, "registration_submit")
+    LOGIN_NAME = (By.CSS_SELECTOR, ".phone-number-input")
+    LOGIN_PASSWORD = (By.CSS_SELECTOR, "#loginPassword")
+    LOGIN_BTN = (By.CSS_SELECTOR, ".send")
 
 class RegisterPageLocators():
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")

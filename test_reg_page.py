@@ -3,7 +3,6 @@ from .pages.register_page import RegisterPage
 
 @pytest.mark.register
 class TestUserRegister():
-    #@pytest.fixture(scope="function", autouse=True)
     def test_register_new_user(self, browser):
         link = "https://stage.prodly.ru/register"
         register_page = RegisterPage(browser, link)
@@ -15,5 +14,5 @@ class TestUserRegister():
         time.sleep(15)
         register_page.register_verification(input())
         time.sleep(5)
-        #register_page.should_be_authorized_user()
+        register_page.should_be_authorized_user(name)
 

@@ -1,14 +1,15 @@
 import pytest, time
 from .pages.login_page import LoginPage
 
-#@pytest.mark.skip
-class TestUserAddToBasketFromProductPage():
-    #@pytest.fixture(scope="function", autouse=True)
-    def setup(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+@pytest.mark.login_logout
+class TestUserLogin():
+    def test_user_login(self, browser):
+        link = "https://stage.prodly.ru/login/"
         login_page = LoginPage(browser, link)
         login_page.open()
-        email = str(time.time()) + "@fakemail.org"
-        login_page.register_new_user(email, '1a2S3d4F5g6H7j')
+        phone = "+79538906542"
+        password = '1a2S3d4F5g6H7j'
+        login_page.login_user(phone, password)
         time.sleep(5)
-        login_page.should_be_authorized_user()
+        name = 'Manya'
+        login_page.should_be_authorized_user(name)

@@ -18,3 +18,12 @@ class TestLoginFromMainPage():
         login_page = LoginPage(browser, browser.current_url)
         login_page.should_be_login_page()
 
+    def test_logout(self, browser):
+        link = "https://stage.prodly.ru/login/"
+        login_page = LoginPage(browser, link)
+        login_page.open()
+        phone = "+79538906542"
+        password = '1a2S3d4F5g6H7j'
+        login_page.login_user(phone, password)
+        login_page.logout()
+        login_page.should_be_login_page()

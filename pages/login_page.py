@@ -16,12 +16,10 @@ class LoginPage(BasePage):
     def should_be_register_link(self):
         assert self.is_element_present(*LoginPageLocators.REGISTER_LINK), "Register_link is not presented"
 
-    def register_new_user(self, email, password):
-        mail = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
-        mail.send_keys(email)
-        pas1 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD1)
-        pas1.send_keys(password)
-        pas2 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD2)
-        pas2.send_keys(password)
-        register_btn = self.browser.find_element(*LoginPageLocators.REGISTRATION_BTN)
-        register_btn.click()
+    def login_user(self, name, password):
+        p_name = self.browser.find_element(*LoginPageLocators.LOGIN_NAME)
+        p_name.send_keys(name)
+        p_pas = self.browser.find_element(*LoginPageLocators.LOGIN_PASSWORD)
+        p_pas.send_keys(password)
+        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BTN)
+        login_btn.click()
