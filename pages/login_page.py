@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import LoginPageLocators
+from .locators import BasePageLocators, LoginPageLocators
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -23,3 +23,7 @@ class LoginPage(BasePage):
         p_pas.send_keys(password)
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BTN)
         login_btn.click()
+
+    def should_be_error_msg_login(self):
+       assert self.browser.find_element(*BasePageLocators.ERROR_MSG).text == "Проверьте логин и пароль"\
+            , "User error-message is not presented"

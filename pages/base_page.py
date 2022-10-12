@@ -23,8 +23,7 @@ class BasePage():
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def should_be_authorized_user(self, name):
-        #greeting = "Вы вошли как " + name
-        assert self.browser.find_element(*BasePageLocators.USER_GREETING).text == "Вы вошли как " + name\
+       assert self.browser.find_element(*BasePageLocators.USER_GREETING).text == "Вы вошли как " + name\
             , "User greeting is not presented, probably unauthorised user"
 
     def is_element_present(self, how, what):

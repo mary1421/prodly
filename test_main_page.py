@@ -4,12 +4,18 @@ from .pages.login_page import LoginPage
 
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
+    '''
+    Тест на наличие ссылки на страницу авторизации на главной странице
+    '''
     def test_guest_should_see_login_link(self, browser):
         link = "https://stage.prodly.ru"
         page = MainPage(browser, link)
         page.open()
         page.should_be_login_link()
 
+    '''
+    Тест на переход на страницу авторизации с главной страницы.
+    '''
     def test_guest_can_go_to_login_page(self, browser):
         link = "https://stage.prodly.ru"
         page = MainPage(browser, link)
@@ -18,6 +24,10 @@ class TestLoginFromMainPage():
         login_page = LoginPage(browser, browser.current_url)
         login_page.should_be_login_page()
 
+    '''
+    Тест на разлогин пользователя.
+    Проверяется переход на страницу авторизации.
+    '''
     def test_logout(self, browser):
         link = "https://stage.prodly.ru/login/"
         login_page = LoginPage(browser, link)

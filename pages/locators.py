@@ -2,11 +2,11 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, ".login")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_GREETING = (By.CSS_SELECTOR, "#main-form > div.top > h3")
     #OUTLETS_WRAP = (By.CSS_SELECTOR, ".outlets-wrap")
     #CLOSE_OUTLETS = (By.CSS_SELECTOR, ".close-icon")
     LOGOUT_LINK = (By.XPATH, "/html/body/div[3]/div/div[1]/div[2]/div/div/div[2]/ul/li[6]/a")
+    ERROR_MSG = (By.CSS_SELECTOR, "#main-form > div.input-wrap.password-wrap > p")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, ".sign-in-wrapper")
