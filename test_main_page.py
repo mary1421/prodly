@@ -5,11 +5,17 @@ from .pages.login_page import LoginPage
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
     '''
-    Тест на наличие ссылки на страницу авторизации на главной странице
+    Тест на наличие ссылки на страницу авторизации на главной странице, тест запускается для нескольких экземпляров страниц
     '''
-    def test_guest_should_see_login_link(self, browser):
+    @pytest.mark.parametrize(
+        "url_suffix",
+        [
+            f"?promo=offer{i}" for i in range(10)
+        ]
+    )
+    def test_guest_should_see_login_link(self, browser, url_suffix):
         link = "https://stage.prodly.ru"
-        page = MainPage(browser, link)
+        page = MainPage(browser, link + url_suffix)
         page.open()
         page.should_be_login_link()
 
